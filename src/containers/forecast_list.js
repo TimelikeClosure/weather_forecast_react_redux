@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+
 import Chart from '../components/chart';
 
 class ForecastList extends Component {
@@ -15,7 +16,7 @@ class ForecastList extends Component {
 }
 
 function mapActionsToProps(dispatch){
-    return bindActionCreators(ForecastList, dispatch);
+    return bindActionCreators(() => ({type: ''}), dispatch);
 }
 
 function mapStateToProps(){

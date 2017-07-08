@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import SearchBar from '../containers/search_bar';
 import ForecastList from '../containers/forecast_list';
 
