@@ -1,7 +1,8 @@
 "use strict";
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
+import {fetchWeather} from '../actions/index';
 
 class SearchBar extends Component {
     constructor(props){
@@ -19,9 +20,8 @@ class SearchBar extends Component {
 
     onFormSubmit(event){
         event.preventDefault();
-        console.log(`Form submitted with value: "${this.state.term}"`);
-
-        // We need to go and fetch weather data
+        this.props.fetchWeather(this.state.term);
+        this.setState({term: ''});
     }
 
     render(){
@@ -45,11 +45,9 @@ class SearchBar extends Component {
 }
 
 function mapActionsToProps(dispatch){
-    return bindActionCreators(() => ({type: ''}), dispatch);
+    return {
+        fetchWeather: bindActionCreators(fetchWeather, dispatch)
+    };
 }
 
-function mapStateToProps(){
-    return {};
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(SearchBar);
+export default connect(null, mapActionsToProps)(SearchBar);
