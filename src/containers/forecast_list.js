@@ -8,19 +8,38 @@ import Chart from '../components/chart';
 class ForecastList extends Component {
     render(){
         return (
-            <div>
-                <Chart/>
-            </div>
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>Temperature</th>
+                        <th>Pressure</th>
+                        <th>Humidity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            City Name
+                        </td>
+                        <td>
+                            <Chart/>
+                        </td>
+                        <td>
+                            <Chart/>
+                        </td>
+                        <td>
+                            <Chart/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         );
     }
 }
 
-function mapActionsToProps(dispatch){
-    return bindActionCreators(() => ({type: ''}), dispatch);
+function mapStateToProps({weather}){
+    return {weather};
 }
 
-function mapStateToProps(){
-    return {};
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(ForecastList);
+export default connect(mapStateToProps)(ForecastList);
