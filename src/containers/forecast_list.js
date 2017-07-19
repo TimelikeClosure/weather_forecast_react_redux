@@ -8,21 +8,15 @@ import Chart from '../components/chart';
 class ForecastList extends Component {
     renderList(){
        return this.props.weather.map(function(city){
-           const temp = city.list.map(function({main: {temp}}){
-               return temp;
-           });
-           const humidity = city.list.map(function({main: {humidity}}){
-               return humidity;
-           });
-           const pressure = city.list.map(function({main: {pressure}}){
-               return pressure;
-           });
+           const temp = city.list.map(({main: {temp}}) => temp);
+           const humidity = city.list.map(({main: {humidity}}) => humidity);
+           const pressure = city.list.map(({main: {pressure}}) => pressure);
            return (
                <tr key={key()}>
                    <td>{city.city.name}</td>
-                   <td>Temperature: {temp}<Chart /></td>
-                   <td>Humidity: {humidity}<Chart /></td>
-                   <td>Pressure: {pressure}<Chart /></td>
+                   <td><Chart data={temp}/></td>
+                   <td><Chart data={humidity}/></td>
+                   <td><Chart data={pressure}/></td>
                </tr>
            );
        });
