@@ -2,14 +2,14 @@
 import React, {Component} from 'react';
 import {Sparklines, SparklinesLine} from 'react-sparklines';
 
-function Chart(props){
+function Chart({data, color}){
     return (
         <Sparklines
-            data={props.data}
+            data={data}
             height={120}
             width={180}
         >
-            <SparklinesLine color="red"/>
+            <SparklinesLine color={color}/>
         </Sparklines>
     );
 }

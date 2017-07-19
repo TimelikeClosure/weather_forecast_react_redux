@@ -14,9 +14,9 @@ class ForecastList extends Component {
            return (
                <tr key={key()}>
                    <td>{city.city.name}</td>
-                   <td><Chart data={temp}/></td>
-                   <td><Chart data={humidity}/></td>
-                   <td><Chart data={pressure}/></td>
+                   <td><Chart data={temp} color="orange"/></td>
+                   <td><Chart data={humidity} color="red"/></td>
+                   <td><Chart data={pressure} color="blue"/></td>
                </tr>
            );
        });
